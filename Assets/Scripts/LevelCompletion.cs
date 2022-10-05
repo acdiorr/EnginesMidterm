@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fruit : MonoBehaviour
+public class LevelCompletion : MonoBehaviour
 {
-
+    // Start is called before the first frame update
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == "Bullet")
+        if (other.collider.tag == "Player")
         {
-            Debug.Log("Fruit Shot Down! + 100 ");
-            ScoreManager.instance.ChangeScore(100);
+            Debug.Log("Changing Background");
+            DistanceManager.instance.ChangeBackground(new Color(0.5f, 1.68f, 0.86f));
             Destroy(gameObject);
         }
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         
